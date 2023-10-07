@@ -1,0 +1,16 @@
+<form [formGroup]="payment" (ngSubmit)="paymentfun(payment)" class="my-5 m-auto p-5">
+
+<label for="">Details:</label>
+<input type="text" class="form-control" formControlName="details">
+
+<label for="">phone:</label>
+<input type="tel" class="form-control" formControlName="phone">
+
+<label for="">city:</label>
+<input type="text" class="form-control" formControlName="city">
+
+
+<button class="btn btn-outline-success p-1 m-4 w-25" type="submit">Pay</button>
+
+
+</form>

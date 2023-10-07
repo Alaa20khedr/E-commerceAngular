@@ -1,0 +1,26 @@
+<div class="bg-main-light p-4 my-4">
+    <h3>My wish List</h3>
+  <div  *ngFor="let product of wishlist"  class="row  border-bottom py-3">
+        <div class=" col-md-2">
+                <img [src]="product.imageCover" alt=""  class="w-100">
+            </div>
+            <div class="col-md-10 my-4 d-flex justify-content-between">
+                <div>
+                <h5 class="text-main">{{product.title}}</h5>
+                <p ><span class="text-secondary">Price:</span>{{product.price}}EGP</p>
+                <button (click)="removefromwishlist(product.id)" class="btn btn-outline-danger m-0 p-2"><i class="fas fa-trash-alt  mx-2"></i>Remove</button>
+            </div>
+            <div>
+                <button  (click)="removefromwishlist(product.id)" class="btn btn-outline-success m-0 p-2">AddToCart</button>
+            </div>
+            </div>
+          
+</div>
+</div>
+
+
+
+
+
+
+

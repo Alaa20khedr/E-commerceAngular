@@ -1,0 +1,33 @@
+
+<div class="my-5">
+    <h2>shop popular <span class="text-main">Products</span> </h2>
+
+    <input [(ngModel)]="inputvalue" type="text" class="form-control w-75 m-auto mb-3">
+  
+    <div class="row">
+        <div *ngFor="let data of products|addtitle:inputvalue , let last=last " class="col-md-3">
+            <div class="bg-light rounded border text-center p-1 product">
+            <a [routerLink]="['/detail',data._id]">
+
+                <img [src]="data.imageCover" alt="" width="200" height="200">
+                <p class="text-main">{{data.category.name}}</p>
+                <h6 class="fw-bold">{{data.title.split(' ').slice(0,2).join(' ')}}</h6>
+                <div class="d-flex justify-content-between">
+                    <span>{{data.price}} EGP</span>
+                    <span><i class="fa-solid fa-star 
+                        rating-color"></i></span>
+                </div>
+               
+           </a>
+           <div   class="d-flex justify-content-end m-3 fs-2">
+           <i  (click)='addtowish(data._id)' class="fas fa-heart cursor-pointer text-danger"></i>
+           </div>
+           <button (click)="addtocart(data._id)" class="btn bg-main product">Add +</button>
+    </div>
+<!-- <div routerLink="/product" *ngIf="last" class="d-flex justify-content-end my-5">
+<i class="fas fa-circle-arrow-right text-success fa-2x"></i>
+</div> -->
+
+        </div>
+    </div>
+</div>

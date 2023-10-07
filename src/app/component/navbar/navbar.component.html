@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+      <div class="container">
+        <i class="fas fa-shopping-cart text-main mx-1"></i>
+        <a class="navbar-brand fw-bold"  routerLink="home">freshCart</a>
+        
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul *ngIf="isLogin" class="navbar-nav me-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="home" routerLinkActive="bg-info text-light" aria-current="page">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="product"  routerLinkActive="bg-info text-light" >products</a>
+                </li>
+               
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="brand"  routerLinkActive="bg-info text-light" >Brand</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="categories"  routerLinkActive="bg-info text-light" >categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="wishlist"  routerLinkActive="bg-info text-light" >WishList</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="cart"  routerLinkActive="bg-info text-light" >Cart</a>
+                </li>
+              
+              
+            </ul>
+            <ul class="navbar-nav ms-auto mt-2 d-flex">
+                <li class="nav-item justify-content-evenly mt-2">
+                  <i class="fab fa-facebook alignitem-center"></i>
+                  <i class="fab mx-2 fa-twiter alignitem-center"></i>
+                  <i class="fab mx-2 fa-instagram alignitem-center"></i>
+                  <i class="fab mx-2 fa-linkedin alignitem-center"></i>
+                  <i class="fab mx-2 fa-tiktok alignitem-center"></i>
+                  <i class="fab mx-2 fa-youtube alignitem-center"></i>
+                </li>
+               
+
+                <li *ngIf="!isLogin" class="nav-item">
+                    <a class="nav-link" routerLink="login"  routerLinkActive="bg-info text-light" >Login</a>
+                </li>
+               
+                <li *ngIf="!isLogin" class="nav-item">
+                    <a class="nav-link" routerLink="register"  routerLinkActive="bg-info text-light" >Register</a>
+                </li>
+                <li *ngIf="isLogin" class="nav-item position-relative">
+                   
+                    <a class="nav-link" routerLink="cart"  routerLinkActive="text-main" ><i class="fas fa-cart-shopping text-main fa-lg" ></i></a>
+                    <span class="bg-main badge text-light position-absolute top-0 end-0">{{cartNum}}</span>
+                </li>
+                <li *ngIf="isLogin" class="nav-item">
+                    <span (click)="logOT()"  class="nav-link cursor-pointer" > logOut</span>
+                </li>
+              
+            </ul>
+           
+        </div>
+  </div>
+</nav>
+
+

@@ -1,0 +1,38 @@
+<div class=" mx-auto py-4 w-75">
+    <h2>Reset Form:</h2>
+<div *ngIf="apiError"  class="alert alert-danger" role="alert">
+{{apiError}}
+</div>
+
+        <form (ngSubmit)="resetpass(ResetForm)" [formGroup]="ResetForm">
+          
+    
+            <div class="mb-4">
+                <label for="">email</label>
+                <input formControlName="email" type="email" class="form-control" />
+                <div  *ngIf="ResetForm.get('email')?.errors && ResetForm.get('email')?.touched" class="alert alert-danger">
+                    <P *ngIf="ResetForm.get('email')?.getError('email')" class="m-0"> Email InValid</P>
+                    <P  *ngIf="ResetForm.get('email')?.getError('required')" class="m-0"> Email is required</P>
+                 
+                  </div>
+                   </div>
+            
+            <div class="mb-4">
+                <label for=" newpassword"> newpassword</label>
+                <input formControlName="newpassword"  type="password" class="form-control" id=" newpassword"/>
+                <div  *ngIf="ResetForm.get('newpassword')?.errors && ResetForm.get('newpassword')?.touched" class="alert alert-danger">
+
+                    <P  *ngIf="ResetForm.get('newpassword')?.getError('pattern')" class="m-0">  newpassword is invalid</P>
+                    <P  *ngIf="ResetForm.get('newpassword')?.getError('required')" class="m-0">  newpassword is required</P>
+                   
+                  </div>
+                   </div>
+       
+         
+            <button [disabled]="ResetForm.invalid" type="submit" class="btn btn-success">
+            <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
+            <span  *ngIf="!isLoading">confirm</span>
+        </button>
+        </form>
+    </div>
+

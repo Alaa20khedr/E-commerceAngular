@@ -1,0 +1,16 @@
+
+<div class="my-5">
+    <h2>shop popular <span class="text-main">categories</span> </h2>
+    <div class="row">
+    
+        <div *ngFor="let data of category , let last= last" class="col-md-4"> 
+            <div class="bg-light rounded border text-center p-1">
+                <img [src]="data.image" alt="" width="200" height="200">
+                <h6>{{data.name}}</h6>
+            </div>
+            <div routerLink="/categories" *ngIf="last" class="d-flex justify-content-end my-5">
+               
+                </div>
+        </div>
+    </div>
+</div>
